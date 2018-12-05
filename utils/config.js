@@ -1,7 +1,7 @@
 module.exports = {
   // host:'http://115.159.98.221:3636',
-  // host:'https://hbsz.ctnmit.com',
-  host:'http://git.sz.com/',
+  host:'http://szdev.ctnmit.com/',
+  // host:'http://git.sz.com/',
   fieldMap:{
     "t_id": "id",
     "rec_number": "",

@@ -1,4 +1,8 @@
 <view class="detail_box" style="display:{{(status=='1')?'block':'none'}}">
+  <view class="detail_content_box" style="width:100%;">
+    <text class="detail_title">周转房地址</text>
+    <text class="detail_content">{{detail.address}}</text>
+  </view>
   <view class="detail_content_box">
     <text class="detail_title">租户</text>
     <text class="detail_content">{{detail.tt_name}}</text>
@@ -7,17 +11,13 @@
     <text class="detail_title">单位</text>
     <text class="detail_content">{{detail.org_name}}</text>
   </view>
-  <view class="detail_content_box">
-    <text class="detail_title">周转房地址</text>
-    <text class="detail_content">{{detail.address}}</text>
-  </view>
-  <view class="detail_content_box">
+  <view class="detail_content_box" style="width:100%;">
     <text class="detail_title">身份证</text>
     <text class="detail_content">{{detail.id_card}}</text>
   </view>
   <view class="detail_content_box" style="width:100%;">
     <text class="detail_title">合同周期</text>
-    <text class="detail_content">{{detail.sdate}}~{{detail.edate}}</text>
+    <text class="detail_content">{{detail.sdate}}至{{detail.edate}}</text>
   </view>
 </view>
 
@@ -51,10 +51,10 @@
     <radio-group name="turn_type" class="group" bindchange="radioChange" style="display:inline-block;">
       <view class="label-2" wx:for="{{radioItems}}">
         <radio id="{{item.name}}" hidden value="{{item.value}}" checked="{{item.checked}}"></radio>
-        <view class="label-2__icon">
+        <!-- <view class="label-2__icon">
           <view class="label-2__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
-        </view>
-        <label class="label-2__text" for="{{item.name}}">
+        </view> -->
+        <label class="label-2__text {{item.checked ?'label-2__text_checked':''}}" for="{{item.name}}">
           <text>{{item.name}}</text>
         </label>
       </view>

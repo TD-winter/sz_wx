@@ -41,7 +41,7 @@ page{
   width:55%;
   display:inline-block;
   vertical-align:middle;
-  font-size:24rpx;
+  font-size:28rpx;
   color:#8D8D8D;
 }
 .list_right{
