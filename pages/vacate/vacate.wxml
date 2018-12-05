@@ -1,0 +1,42 @@
+<view class="list_button">
+  <button class="{{status==1?'active_button':'default_button'}}" data-status='1' bindtap="statusChange">周转房</button>
+  <button class="{{status==2?'active_button':'default_button'}}" data-status='2' bindtap="statusChange">门面房</button>
+</view>
+
+<view class="list_box">
+  <view class="input_box">
+      <input placeholder="请输入租户/档案号/地址" placeholder-style="color:#BDBDBD;" bindblur="searchData" />
+      <image class="search" src="/search.png" ></image>
+  </view>
+  
+  <view  class="content_box" wx:for="{{detail_1}}" style="display:{{status==1?'block':'none'}}">
+    <view class="list_left">
+      <text class="list_h3">{{item.address}}</text>
+      <text class="list_span" style="width:45%;">档案号：{{item.tp_id}}</text>
+      <text class="list_span">合同到期：{{item.edate}}</text>
+      <text class="list_span" style="width:45%;">租户：{{item.tt_name}}</text>
+      <text class="list_span">单位：{{item.org_name}}</text>
+    </view>
+    <view class="list_right">
+      <!-- <navigator url="/pages/vacate_detail/detail?house_id={{item.file_number}}" open-type="navigate">
+        <button>腾退</button>
+      </navigator> -->
+      <button data-money="{{item.sum_unpaid}}" data-id="{{item.tp_id}}" bindtap="goVacate">腾退</button>
+    </view>
+  </view>
+
+  <view  class="content_box" wx:for="{{detail_2}}" style="display:{{status==2?'block':'none'}}">
+    <view class="list_left">
+      <text class="list_h3">{{item.address}}</text>
+      <text class="list_span" style="width:45%;">租户：{{item.bt_name}}</text>
+      <text class="list_span">合同到期：{{item.edate}}</text>
+    </view>
+    <view class="list_right">
+      <!-- <navigator url="/pages/vacate_detail/detail?house_id={{item.file_number}}" open-type="navigate">
+        <button>腾退</button>
+      </navigator> -->
+      <button data-money="{{item.sum_unpaid}}" data-id="{{item.bp_id}}" bindtap="goVacate">腾退</button>
+    </view>
+  </view>
+
+</view>

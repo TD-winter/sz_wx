@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/vacate/vacate",
+    "pages/vacate_detail/detail",
+    "pages/list/list",
+    "pages/repair/repair",
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/map/map",
+    "pages/reset_password/reset_password"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#3366FF",
+    "list": [
+      {
+        "pagePath": "pages/list/list",
+        "text": "档案",
+        "iconPath": "icon/default_icon_file@2x.png",
+        "selectedIconPath": "icon/icon_file@2x.png"
+      },
+      {
+        "pagePath": "pages/repair/repair",
+        "text": "维修",
+        "iconPath": "icon/default_icon_service@2x.png",
+        "selectedIconPath": "icon/icon_service@2x.png"
+      },
+      {
+        "pagePath": "pages/vacate/vacate",
+        "text": "腾退",
+        "iconPath": "icon/default_icon@2x.png",
+        "selectedIconPath": "icon/icon_tengtui@2x.png"
+      }
+    ]
+  }
+}

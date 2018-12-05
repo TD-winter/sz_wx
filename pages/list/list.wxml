@@ -1,0 +1,24 @@
+<view class="list_button">
+  <button class="{{status==1?'active_button':'default_button'}}" data-status='1' bindtap="statusChange">周转房</button>
+  <button class="{{status==2?'active_button':'default_button'}}" data-status='2' bindtap="statusChange">门面房</button>
+</view>
+
+<view class="list_box">
+  <view class="input_box">
+      <input placeholder="请输入姓名/档案号/地址" placeholder-style="color:#BDBDBD;" bindblur="searchData" />
+      <image class="search" src="/search.png" ></image>
+  </view>
+  <view  class="content_box" wx:for="{{detail}}">
+    <navigator url="/pages/detail/detail?house_id={{item.house_id}}" open-type="navigate">
+      <image wx:if="{{item.title_img}}" src="{{item.title_img}}"></image>
+      <view wx:else class="no_img">暂无图片</view>
+      <view class="content_detail">
+          <text class="detail_h3">{{item.address}}</text>
+          <text class="detail_text">档案号：{{item.record_number}}</text>
+          <text class="detail_text">钥匙：{{item.key_name}}</text>
+          <text class="detail_text">单位：{{item.org_name}}</text>
+          <text class="detail_text">租户：{{item.tenant_name}}</text>
+      </view>
+    </navigator>
+  </view>
+</view>

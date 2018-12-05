@@ -1,0 +1,223 @@
+ <view class="public_info">
+  <text>{{top_detail}}</text>
+</view> 
+
+<view class="detail_box" style="margin-top:0;">
+  <form bindsubmit="formSubmitOne">
+    <view class="detail_title">
+      <text class="text_icon"></text>
+      <text class="text_title">房屋信息</text>
+      <text wx:if="{{one_state}}" class="text_edit" bindtap="editOne">编辑</text>
+      <button wx:else class="text_button" formType="submit">完成</button>
+    </view>
+    <view class="detail_map">
+      <text wx:if="{{one_state}}" class="detail_map_text">{{detail_one.address}}</text>
+      <input wx:else name="address" value="{{detail_one.address}}" />
+      <image src="/map.png" bindtap="goMap"></image>
+    </view>
+
+    <view class="detail_left">
+      <text wx:if="{{one_state}}" class="detail_number">{{detail_one.record_number}}</text>
+      <input wx:else name="record_number" value="{{detail_one.record_number}}" />
+      <text class="detail_name">档案号</text>
+    </view>
+
+    <view class="detail_right">
+      <text wx:if="{{one_state}}" class="detail_number">{{detail_one.key_name}}</text>
+      <input wx:else name="key_name" value="{{detail_one.key_name}}" />
+      <text class="detail_name">钥匙</text>
+    </view>
+
+    <view class="detail_left">
+      <text wx:if="{{one_state}}" class="detail_number">{{detail_one.pre_rent}} 元</text>
+       <input wx:else name="pre_rent" value="{{detail_one.pre_rent}}" disabled /> 
+      <text class="detail_name">计算租金（年付）</text>
+    </view>
+
+    <view class="detail_right">
+      <text wx:if="{{one_state}}" class="detail_number">{{detail_one.act_rent}} 元</text>
+      <input wx:else name="act_rent" value="{{detail_one.act_rent}}" />
+      <text class="detail_name">实际租金（年付）</text>
+    </view>
+
+    <view class="detail_left">
+      <text wx:if="{{one_state}}" class="detail_number">{{detail_one.cover_area}}</text>
+      <input wx:else name="cover_area" value="{{detail_one.cover_area}}" />
+      <text class="detail_name">建筑面积</text>
+    </view>
+
+    <view class="detail_right">
+      <text wx:if="{{one_state}}" class="detail_number">{{detail_one.inside_area}}</text>
+      <input wx:else name="inside_area" value="{{detail_one.inside_area}}" />
+      <text class="detail_name">套内面积</text>
+    </view>
+  </form>
+</view>
+
+<view class="detail_box">
+  <form bindsubmit="formSubmitTwo">
+    <view class="detail_title">
+      <text class="text_icon"></text>
+      <text class="text_title">入住情况</text>
+      <text wx:if="{{two_state}}" class="text_edit"  bindtap="editTwo">编辑</text>
+      <button wx:else class="text_button" formType="submit">完成</button>
+    </view>
+    <view class="detail_left">
+      <text wx:if="{{two_state}}" class="detail_number">{{detail_two.handed}}</text>
+      <!-- <input wx:else name="handed" value="{{detail_two.handed}}" /> -->
+      <picker wx:else name="handed" value="{{index}}" range="{{array}}" bindchange="bindPickerChange" class="input_style">
+        <view class="picker">{{array[index]}}</view>
+      </picker>
+      <text class="detail_name">移交情况</text>
+    </view>
+
+    <view class="detail_right">
+      <text wx:if="{{two_state}}" class="detail_number">{{detail_two.pledge_rent}} 元</text>
+      <input wx:else name="pledge_rent" value="{{detail_two.pledge_rent}}" />
+      <text class="detail_name">押金</text>
+    </view>
+
+    <view class="detail_left">
+      <text wx:if="{{two_state}}" class="detail_number">{{detail_two.water_rent}}</text>
+      <input wx:else name="water_rent" value="{{detail_two.water_rent}}" />
+      <text class="detail_name">用水</text>
+    </view>
+
+    <view class="detail_right">
+      <text wx:if="{{two_state}}" class="detail_number">{{detail_two.elect_rent}}</text>
+      <input wx:else name="elect_rent" value="{{detail_two.elect_rent}}" />
+      <text class="detail_name">用电</text>
+    </view>
+    <view class="detail_left">
+      <text wx:if="{{two_state}}" class="detail_number">{{detail_two.gas_rent}}</text>
+      <input wx:else name="gas_rent" value="{{detail_two.gas_rent}}" />
+      <text class="detail_name">燃气</text>
+    </view>
+
+    <view class="detail_right">
+      <text wx:if="{{two_state}}" class="detail_number">{{detail_two.warm_rent}}</text>
+      <input wx:else name="warm_rent" value="{{detail_two.warm_rent}}" />
+      <text class="detail_name">采暖</text>
+    </view>
+    <view class="detail_left">
+      <text wx:if="{{two_state}}" class="detail_number">{{detail_two.tenant_start_time}}</text>
+      <picker wx:else name="tenant_start_time" mode="date" value="{{tenant_start_time}}" start="1960-11-17" end="2050-11-17" bindchange="bindStartTimeChange" class="input_style">
+          <view class="picker">
+            {{tenant_start_time}}
+          </view>
+        </picker>
+      <text class="detail_name">合同起租日期</text>
+    </view>
+
+    <view class="detail_right">
+      <text wx:if="{{two_state}}" class="detail_number">{{detail_two.tenant_end_time}}</text>
+      <picker wx:else name="tenant_end_time" mode="date" value="{{tenant_end_time}}" start="1960-11-17" end="2050-11-17" bindchange="bindEndTimeChange" class="input_style">
+          <view class="picker">
+            {{tenant_end_time}}
+          </view>
+        </picker>
+      <text class="detail_name">合同到租日期</text>
+    </view>
+    <view class="detail_other">
+      <text wx:if="{{two_state}}">备注:{{detail_two.remark}}</text>
+      <input wx:else name="remark" value="{{detail_two.remark}}" />
+    </view>
+  </form>
+</view>
+
+<view class="detail_box">
+  <form bindsubmit="formSubmitThr">
+    <view class="detail_title">
+      <text class="text_icon"></text>
+      <text class="text_title">租户信息</text>
+      <text wx:if="{{three_state}}" class="text_edit" bindtap="editThr">编辑</text>
+      <button wx:else class="text_button" formType="submit">完成</button>
+    </view>
+
+    <view class="detail_left">
+      <text wx:if="{{three_state}}" class="detail_number">{{detail_thr.tenant_name}}</text>
+      <input wx:else name="tenant_name" value="{{detail_thr.tenant_name}}" />
+      <text class="detail_name">姓名</text>
+    </view>
+
+    <view class="detail_right">
+      <text wx:if="{{three_state}}" class="detail_number">{{detail_thr.post_sort}}</text>
+      <input wx:else name="post_sort" value="{{detail_thr.post_sort}}" />
+      <text class="detail_name">职位排序号</text>
+    </view>
+
+    <view class="detail_left">
+      <text wx:if="{{three_state}}" class="detail_number">{{detail_thr.org_name}}</text>
+      <input wx:else name="org_name" value="{{detail_thr.org_name}}" />
+      <text class="detail_name">单位</text>
+    </view>
+
+    <view class="detail_right">
+      <text wx:if="{{three_state}}" class="detail_number">{{detail_thr.post_name}}</text>
+      <input wx:else name="post_name" value="{{detail_thr.post_name}}" />
+      <text class="detail_name">职务</text>
+    </view>
+
+    <view class="detail_left">
+      <text wx:if="{{three_state}}" class="detail_number" bindtap="goPhone" data-phone="{{detail_thr.tel}}">{{detail_thr.tel}}</text>
+      <input wx:else name="tel" value="{{detail_thr.tel}}" />
+      <text class="detail_name">手机</text>
+    </view>
+
+    <view class="detail_right">
+      <text wx:if="{{three_state}}" class="detail_number" bindtap="goPhone" data-phone="{{detail_thr.home_tel}}">{{detail_thr.home_tel}}</text>
+      <input wx:else name="home_tel" value="{{detail_thr.home_tel}}" />
+      <text class="detail_name">座机</text>
+    </view>
+
+    <view class="detail_left">
+      <text wx:if="{{three_state}}" class="detail_number">{{detail_thr.id_card}}</text>
+      <input wx:else name="id_card" value="{{detail_thr.id_card}}" />
+      <text class="detail_name">身份证号</text>
+    </view>
+
+    <view class="detail_right">
+      <text wx:if="{{three_state}}" class="detail_number">{{detail_thr.sort}}</text>
+      <input wx:else name="sort" value="{{detail_thr.sort}}" />
+      <text class="detail_name">排序号码</text>
+    </view>
+    <view class="detail_left">
+      <text wx:if="{{three_state}}" class="detail_number">{{detail_thr.insz_time}}</text>
+      <picker wx:else name="insz_time" mode="date" value="{{insz_time}}" start="1960-11-17" end="2050-11-17" bindchange="bindInszTimeChange" class="input_style">
+          <view class="picker">
+            {{insz_time}}
+          </view>
+        </picker>
+      <text class="detail_name">进入省职时间</text>
+    </view>
+
+    <view class="detail_right">
+      <text wx:if="{{three_state}}" class="detail_number">{{detail_thr.inoffice_time}}</text>
+      <picker wx:else name="inoffice_time" mode="date" value="{{inoffice_time}}" start="1960-11-17" end="2050-11-17" bindchange="bindInofficeTimeChange" class="input_style">
+          <view class="picker">
+            {{inoffice_time}}
+          </view>
+        </picker>
+      <text class="detail_name">任职时间</text>
+    </view>
+  </form>
+</view>
+
+<view class="detail_box">
+  <view class="detail_title">
+    <text class="text_icon"></text>
+    <text class="text_title">图片信息</text>
+    <text wx:if="{{four_state}}" class="text_edit" bindtap="editFour">编辑</text>
+    <button wx:else class="text_button" bindtap="submitFour">完成</button>
+  </view>
+  <view class="image_box" style="padding-top:16rpx;">
+    <view wx:for="{{detail_four}}" class="detail_image_box">
+      <image src="{{item}}" data-src="{{item}}" class="detail_image" bindtap="reviewImg"></image>
+      <image wx:if="{{!four_state}}" class="image_del" src="/delete.png" data-img="{{item}}" bindtap="removeImg"></image>
+    </view>
+    <view wx:if="{{!four_state}}" class="detail_add_box" bindtap="addImg">
+      <text class="add_img">+</text>
+      <text class="add_text">上传资料图片</text>
+    </view>
+  </view>
+</view>

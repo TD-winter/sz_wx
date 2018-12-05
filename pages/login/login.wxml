@@ -1,0 +1,9 @@
+<view  class="container">
+  <form bindsubmit="formSubmit">
+    <input type="text" name="username" placeholder="请输入账号" placeholder-style="color:#CBCBCB;" />
+    <input password="true" name="password" placeholder="请输入密码" placeholder-style="color:#CBCBCB;" />
+    <!-- <text bindtap="forgetPassword">忘记密码？</text>  -->
+    <text bindtap="forgetPassword"></text>
+    <button form-type="submit">登录</button>
+  </form>
+</view>

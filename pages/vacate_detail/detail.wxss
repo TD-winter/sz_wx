@@ -1,0 +1,132 @@
+page{
+  width:92%;
+  background:#FFF;
+  font-size:30rpx;
+  padding:0rpx 4%;
+}
+.detail_content_box{
+  width:50%;
+  margin-top:30rpx;
+  display:inline-block;
+  vertical-align: middle;
+}
+.detail_title{
+  display:block;
+  color:#999999;
+}
+.detail_content{
+  margin-top:10rpx;
+  display:block;
+  color:#333;
+}
+.section__title{
+  display:inline-block;
+}
+.label-1, .label-2{
+    margin-bottom: 15px;
+    display:inline-block;
+    margin-left:20rpx;
+    font-size:30rpx;
+}
+.label-1__text, .label-2__text {
+  color:#333;
+  display: inline-block;
+  vertical-align: middle;
+}
+.label-2__icon {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  background: #fcfff4;
+  border-radius: 50px;
+}
+.label-2__icon-checked {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 12px;
+  height: 12px;
+  background: #1aad19;
+  border-radius: 50%;
+}
+.text_lable{
+  display:inline-block;
+  vertical-align: middle;
+  color:#999999;
+}
+.input_box{
+  width:50%;
+  margin:10rpx 0rpx;
+  display:inline-block;
+  vertical-align: middle;
+}
+.input_box input{
+  width:90%;
+  margin-top:10rpx;
+  padding:0rpx 10rpx;
+  border:1px solid #ccc;
+  border-radius:4px;
+  font-size:28rpx;
+  color:#333;
+}
+.pic_title{
+  margin-top:40rpx;
+  color:#999999;
+  }
+.image_box{
+  padding-left:8rpx;
+  text-align:left;
+}
+.detail_image_box,.detail_add_box{
+  width:30%;
+  height:154rpx;
+  position:relative;
+  margin:4rpx 8rpx;
+  border-radius:8rpx;
+  border:1px solid #2E77EF;
+  display:inline-block;
+  vertical-align: middle;
+}
+.detail_add_box{
+  border:1px dashed #2E77EF;
+}
+.detail_add_box text{
+  display:block;
+  color:#D1D1D1;
+}
+.add_img{
+  height:102rpx;
+  font-size:102rpx;
+  line-height:102rpx;
+  text-align:center;
+}
+.add_text{
+  text-align:center;
+  font-size:28rpx;
+}
+.detail_image{
+  width:100%;
+  height:154rpx;
+  position:absolute;
+  border-radius:8rpx;
+}
+.image_del{
+  width:48rpx;
+  height:48rpx;
+  right:0;
+  position:absolute;
+}
+.submit{
+  width:90%;
+  height:80rpx;
+  line-height:80rpx;
+  margin-top:40rpx;
+  margin-bottom:40rpx;
+  background:linear-gradient(90deg,rgba(42,96,228,1) 0%,rgba(78,115,243,1) 100%);
+  box-shadow:0px 0px 8px 0px rgba(0,21,73,0.4);
+  border-radius:4px;
+  color:#FFF;
+}

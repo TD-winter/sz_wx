@@ -1,0 +1,27 @@
+/* pages/login/login.wxss */
+.container{
+  padding:400rpx auto;
+}
+.container input{
+  width:560rpx;
+  margin-top:106rpx;
+  border-bottom:1px solid #D8D8D8;
+  font-size:36rpx;
+}
+.container text{
+   width:560rpx;
+   margin:20rpx auto 120rpx;
+   display:inline-block;
+   text-align:right;
+   font-size:32rpx;
+   color:rgba(46,119,239,1);
+   line-height:21px;
+}
+.container button{
+  width:560rpx;
+  height:92rpx;
+  background:rgba(46,119,239,1);
+  border-radius:24px;
+  color:#FFF;
+  font-size:36rpx;
+}

@@ -1,0 +1,4 @@
+<!--pages/repair/repair.wxml-->
+<view class="img_background">
+  <image src="/icon/tu2@2x.png"></image>
+</view>

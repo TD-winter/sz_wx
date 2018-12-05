@@ -1,0 +1,60 @@
+page{
+  width:100%;
+  background:#F5F8FA;
+}
+
+.list_box input{
+  width:74%;
+  height:72rpx;
+  margin:14rpx 3% 14rpx 5%;
+  padding-left:4%;
+  background:#FFF;
+  border-radius:8rpx;
+  font-size:28rpx;
+  display:inline-block;
+  vertical-align: middle;
+}
+.search{
+  width:8%;
+  height:60rpx;
+  display:inline-block;
+  vertical-align: middle;
+}
+.content_box{
+  margin-top:2px;
+  padding:20rpx 0;
+  background:#FFF;
+}
+.list_left{
+  width:80%;
+  padding:0 2%;
+  box-sizing:border-box;
+  display:inline-block;
+  vertical-align:middle;
+}
+.list_left .list_h3{
+  font-size:34rpx;
+  color:#505050;
+  display:block;
+}
+.list_left .list_span{
+  width:55%;
+  display:inline-block;
+  vertical-align:middle;
+  font-size:24rpx;
+  color:#8D8D8D;
+}
+.list_right{
+  width:20%;
+  padding:0 2%;
+  box-sizing:border-box;
+  display:inline-block;
+  vertical-align:middle;
+}
+.list_right button{
+  height:60rpx;
+  line-height:60rpx;
+  font-size:26rpx;
+  background:#3366FF;
+  color:#FFF;
+}

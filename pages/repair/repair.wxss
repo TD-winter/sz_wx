@@ -1,0 +1,5 @@
+/* pages/repair/repair.wxss */
+.img_background{
+  margin-top:200rpx;
+  text-align:center;
+}

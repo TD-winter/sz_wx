@@ -1,0 +1,134 @@
+<view class="detail_box" style="display:{{(status=='1')?'block':'none'}}">
+  <view class="detail_content_box">
+    <text class="detail_title">租户</text>
+    <text class="detail_content">{{detail.tt_name}}</text>
+  </view>
+  <view class="detail_content_box">
+    <text class="detail_title">单位</text>
+    <text class="detail_content">{{detail.org_name}}</text>
+  </view>
+  <view class="detail_content_box">
+    <text class="detail_title">周转房地址</text>
+    <text class="detail_content">{{detail.address}}</text>
+  </view>
+  <view class="detail_content_box">
+    <text class="detail_title">身份证</text>
+    <text class="detail_content">{{detail.id_card}}</text>
+  </view>
+  <view class="detail_content_box" style="width:100%;">
+    <text class="detail_title">合同周期</text>
+    <text class="detail_content">{{detail.sdate}}~{{detail.edate}}</text>
+  </view>
+</view>
+
+<view class="detail_box" style="display:{{(status=='2')?'block':'none'}}">
+  <view class="detail_content_box" style="width:100%;">
+    <text class="detail_title">门面房地址</text>
+    <text class="detail_content">{{detail.address}}</text>
+  </view>
+  <view class="detail_content_box">
+    <text class="detail_title">租户</text>
+    <text class="detail_content">{{detail.bt_name}}</text>
+  </view>
+  <view class="detail_content_box">
+    <text class="detail_title">手机号</text>
+    <text class="detail_content">{{detail.phone}}</text>
+  </view>
+  <view class="detail_content_box" style="width:100%;">
+    <text class="detail_title">身份证</text>
+    <text class="detail_content">{{detail.id_card}}</text>
+  </view>
+  <view class="detail_content_box" style="width:100%;">
+    <text class="detail_title">合同周期</text>
+    <text class="detail_content">{{detail.sdate}}~{{detail.edate}}</text>
+  </view>
+</view>
+
+
+<form bindsubmit="formSubmit">
+  <view class="detail_content_box" style="width:100%;">
+    <view class="detail_title">退租类型</view>
+    <radio-group name="turn_type" class="group" bindchange="radioChange" style="display:inline-block;">
+      <view class="label-2" wx:for="{{radioItems}}">
+        <radio id="{{item.name}}" hidden value="{{item.value}}" checked="{{item.checked}}"></radio>
+        <view class="label-2__icon">
+          <view class="label-2__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
+        </view>
+        <label class="label-2__text" for="{{item.name}}">
+          <text>{{item.name}}</text>
+        </label>
+      </view>
+    </radio-group>
+  </view>
+
+  <view class="input_box" style="width:100%;">
+    <text class="text_lable">退租原因</text>
+    <input name="t_reason" value="{{detail.t_reason}}" style="width:95%;" />
+  </view>
+  <view class="input_box">
+    <text class="text_lable">用水</text>
+    <input name="e_water" value="{{detail.e_water}}" />
+  </view>
+  <view class="input_box">
+    <text class="text_lable">用电</text>
+    <input name="e_elect" value="{{detail.e_elect}}" />
+  </view>
+  <view class="input_box">
+    <text class="text_lable">燃气</text>
+    <input name="e_gas" value="{{detail.e_gas}}" />
+  </view>
+  <view class="input_box">
+    <text class="text_lable">采暖</text>
+    <input name="e_warm" value="{{detail.e_warm}}" />
+  </view>
+
+  <view class="pic_title">杂费结清证明</view>
+  <view class="image_box" style="padding-top:16rpx;">
+    <view wx:for="{{img_one}}" class="detail_image_box">
+      <image src="{{item}}" data-src="{{item}}" class="detail_image" bindtap="reviewImg"></image>
+      <image wx:if="{{!four_state}}" data-type="img_one" class="image_del" src="/delete.png" data-img="{{item}}" bindtap="removeImg"></image>
+    </view>
+    <view wx:if="{{!four_state}}" class="detail_add_box" data-type="img_one" bindtap="addImg">
+      <text class="add_img">+</text>
+      <text class="add_text">上传资料图片</text>
+    </view>
+  </view>
+
+  <view class="pic_title">腾退交接书</view>
+  <view class="image_box" style="padding-top:16rpx;">
+    <view wx:for="{{img_two}}" class="detail_image_box">
+      <image src="{{item}}" data-src="{{item}}" data-type="img_two" class="detail_image" bindtap="reviewImg"></image>
+      <image wx:if="{{!four_state}}" data-type="img_two" class="image_del" src="/delete.png" data-img="{{item}}" bindtap="removeImg"></image>
+    </view>
+    <view wx:if="{{!four_state}}" class="detail_add_box" data-type="img_two" bindtap="addImg">
+      <text class="add_img">+</text>
+      <text class="add_text">上传资料图片</text>
+    </view>
+  </view>
+
+  <view class="pic_title">房屋图片</view>
+  <view class="image_box" style="padding-top:16rpx;">
+    <view wx:for="{{img_three}}" class="detail_image_box">
+      <image src="{{item}}" data-src="{{item}}" data-type="img_three" class="detail_image" bindtap="reviewImg"></image>
+      <image wx:if="{{!four_state}}" data-type="img_three" class="image_del" src="/delete.png" data-img="{{item}}" bindtap="removeImg"></image>
+    </view>
+    <view wx:if="{{!four_state}}" class="detail_add_box" data-type="img_three" bindtap="addImg">
+      <text class="add_img">+</text>
+      <text class="add_text">上传资料图片</text>
+    </view>
+  </view>
+
+  <view class="pic_title">其它资料</view>
+  <view class="image_box" style="padding-top:16rpx;">
+    <view wx:for="{{img_four}}" class="detail_image_box">
+      <image src="{{item}}" data-src="{{item}}"  class="detail_image" bindtap="reviewImg"></image>
+      <image wx:if="{{!four_state}}" data-type="img_four" class="image_del" src="/delete.png" data-img="{{item}}" bindtap="removeImg"></image>
+    </view>
+    <view wx:if="{{!four_state}}" class="detail_add_box" data-type="img_four" bindtap="addImg">
+      <text class="add_img">+</text>
+      <text class="add_text">上传资料图片</text>
+    </view>
+  </view>
+  <input type="hidden" name="tp_imgs" value="{{detail.tp_imgs}}" />
+  <button form-type="submit" class="submit">提交</button>
+</form>
