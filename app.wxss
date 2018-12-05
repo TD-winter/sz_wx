@@ -14,6 +14,7 @@
 }
 .list_button button{
   width:30%;
+  height:94rpx;
   margin:0px 10%;
   background:#FFFFFF;
   display:inline-block;
