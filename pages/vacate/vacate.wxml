@@ -5,7 +5,7 @@
 
 <view class="list_box">
   <view class="input_box">
-      <input placeholder="请输入租户/档案号/地址" placeholder-style="color:#BDBDBD;" bindblur="searchData" />
+      <input placeholder="请输入租户/地址" value="{{search_data}}" placeholder-style="color:#BDBDBD;" bindblur="searchData" />
       <image class="search" src="/search.png" ></image>
   </view>
   
