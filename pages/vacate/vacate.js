@@ -8,6 +8,7 @@ Page({
    */
   data: {
     status: 1,//1周转房，2门面房
+    search_msg:'',
     detail_1:[{
       address:'',
       tp_id : '',
@@ -134,24 +135,7 @@ Page({
       this.data.page = 1;
     }
     var self = this;
-    wx.request({
-      url: config.host + '/api/Admin/getHouselst',
-      data: {
-        number: app.globalData.number,
-        find: e.detail.value
-      },
-      success: function (res) {
-        console.log(res);
-        self.setData({
-          detail: res.data.data.map(function (data) {
-            if (data.title_img != false) {
-              data.title_img = config.host + data.title_img;
-            }
-            return data;
-          })
-        })
-      }
-    })
+    this.getList(e.detail.value);
   },
   statusChange:function(event){
     if (event.currentTarget.dataset.status == "1"){
@@ -163,9 +147,12 @@ Page({
         status: 2
       });
     }
+    this.setData({
+      search_msg : ''
+    });
     this.getList();
   },
-  getList:function(){
+  getList:function(value){
     var _self = this;
     if(_self.data.status == 1){
       var url_string = '/admin.php/wx/index/getTturnList';
@@ -178,6 +165,7 @@ Page({
       data: {
         token: app.globalData.token
         // token: '28b554ac7b79dbe6e200dbbe70805c9f'
+        ,keywords:value
       },
       header: {
         'content-type': 'application/json' // 默认值
