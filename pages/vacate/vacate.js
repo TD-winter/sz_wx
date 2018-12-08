@@ -159,6 +159,7 @@ Page({
     }else if(_self.data.status == 2){
       var url_string = '/admin.php/wx/index/getBturnList';
     }
+    console.log(app.globalData.token);
     wx.request({
       url: config.host + url_string,
       method:'POST',
